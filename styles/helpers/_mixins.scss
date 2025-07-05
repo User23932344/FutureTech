@@ -65,15 +65,23 @@
     overflow: hidden !important;
 }
 
-@mixin full-vw-centered-line($property: top){
-    position: relative;
-    &::before{
-        @include abs-x;
+@mixin full-vw-centered-line(
+  $property: top,
+  $left: 50%,
+  $right: auto,
+  $translate: -50%
+) {
+  position: relative;
 
-        content: '';
-        #{$property}:0;
-        width: 100vw;
-        height: rem(1);
-        background-color: var(--color);
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    left: $left;
+    right: $right;
+    #{$property}: 0;
+    translate: $translate;
+    width: calc(100vw - 16px);
+    height: rem(1);
+    background-color: var(--color-dark-15);
+  }
 }

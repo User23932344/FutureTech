@@ -9,8 +9,37 @@
     grid-template-columns: repeat(var(--columns), 1fr);
 
     &--2-cols {
-        --itemPaddingX:#{rem(80)};
         --columns: 2;
+        --itemPaddingX: #{rem(80)};
+
+        @include laptop {
+            --itemPaddingX: #{rem(50)};
+        }
+
+        @include mobile-above {
+            .bordered-grid__item {
+                &:nth-child(odd) {
+                    padding-right: var(--itemPaddingX);
+                    border-right: var(--border);
+                }
+
+                &:nth-child(even) {
+                    @include full-vw-centered-line(bottom,
+                        auto,
+                        100%,
+                        50%);
+
+                    padding-left: var(--itemPaddingX);
+                }
+            }
+        }
+
+        @include mobile{
+            --columns:1;
+            .bordered-grid__item:not(:last-child){
+                border-bottom: var(--border);
+            }
+        }
     }
 
     &--3-cols {
@@ -20,7 +49,7 @@
         @include laptop {
             --itemPaddingX:#{rem(40)};
         }
-        
+
         @include tablet-above {
             .bordered-grid__item {
 
@@ -54,12 +83,12 @@
         @include tablet {
             --columns: 1;
 
-            .bordered-grid__item:not(:last-child){
+            .bordered-grid__item:not(:last-child) {
                 border-bottom: var(--border);
             }
         }
 
-        
+
     }
 
     &__item {

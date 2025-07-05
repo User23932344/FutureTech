@@ -41,4 +41,7 @@
         border-block: var(--border);
     }
     
+    &__link{
+        max-width: rem(360);
+    }
 }
