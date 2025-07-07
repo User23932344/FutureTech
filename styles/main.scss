@@ -10,6 +10,7 @@
 @use 'blocks/button';
 @use 'blocks/header';
 
+@use 'blocks/expandable-content';
 @use 'blocks/icon';
 @use 'blocks/badge';
 @use 'blocks/soc1als';
@@ -48,4 +49,7 @@
 
 @use 'blocks/video-player';
 @use 'blocks/video-card';
+
+@use 'blocks/table-of-contents';
+@use 'blocks/blog-details';
 
